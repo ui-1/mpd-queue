@@ -1,3 +1,4 @@
+import confuse.exceptions
 from beets.plugins import BeetsPlugin
 from mpd import MPDClient
 
@@ -17,8 +18,13 @@ class MPDQueuePlugin(BeetsPlugin):
 
     def queue(self):
         client = MPDClient()
-        host = self.config['host'].get()
-        port = self.config['port'].get()
+
+        try: port = self.config['port'].get()
+        except confuse.exceptions.NotFoundError: port = 6600
+
+        try: host = self.config['host'].get()
+        except confuse.exceptions.NotFoundError: host = 'localhost'
+
         client.connect(host, port)
         client.update()
 

@@ -14,5 +14,16 @@ and then add `mpd-queue` to the list of enabled plugins in your Beets config.
 
 ## Configuration
 
-`host`: Hostname of the MPD server.  
-`port`: Port to use when connecting.
+Optionally, to specify a non-default location for the MPD server, add a configuration block like this:
+```yaml
+mpd-queue:
+  host: example.com
+  port: 6601
+```
+
+### Options
+
+| Key  | Description                 | Default value |
+|------|-----------------------------|---------------|
+| host | Hostname of the MPD server  | localhost     |
+| port | Port to use when connecting | 6600          |

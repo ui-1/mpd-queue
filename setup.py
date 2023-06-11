@@ -8,7 +8,7 @@ with open(path.join(HERE, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='mpd-queue',
-    version='1.0.3',
+    version='1.0.4',
     description='Beets plugin to add all imported tracks to an MPD server\'s queue',
     long_description=long_description,
     long_description_content_type='text/markdown',

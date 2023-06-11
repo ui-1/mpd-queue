@@ -18,7 +18,9 @@ class MPDQueuePlugin(BeetsPlugin):
 
     def queue(self, lib, paths):
         client = MPDClient()
-        client.connect('localhost', 6600, 5)  # TODO: read from conf
+        host = self.config['host'].get()
+        port = self.config['port'].get()
+        client.connect(host, port)
 
         client.update()
         print('Updating MPD database…')

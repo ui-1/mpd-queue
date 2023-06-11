@@ -1,4 +1,3 @@
-import time
 from beets.plugins import BeetsPlugin
 from mpd import MPDClient
 
@@ -16,7 +15,7 @@ class MPDQueuePlugin(BeetsPlugin):
             songpath = item.destination(fragment=True)
             self.paths.add(songpath)
 
-    def queue(self, lib, paths):
+    def queue(self):
         client = MPDClient()
         host = self.config['host'].get()
         port = self.config['port'].get()

@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='mpd-queue',
-    version='1.0',
+    version='1.0.0',
     packages=['beetsplug'],
     url='https://github.com/ui-1/mpd-queue',
     license='GPLv3',

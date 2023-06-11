@@ -1,6 +1,8 @@
+import os
 import time
 import confuse.exceptions
 from beets.plugins import BeetsPlugin
+from beets import config
 from mpd import MPDClient
 
 
@@ -8,15 +10,16 @@ class MPDQueuePlugin(BeetsPlugin):
 
     def __init__(self):
         super(MPDQueuePlugin, self).__init__()
-        self.register_listener('album_imported', self.gather_imported_files)
+        self.register_listener('item_copied', self.gather_imported_files)
         self.register_listener('import', self.queue)
         self.paths = set()
         self.client = MPDClient()
 
-    def gather_imported_files(self, album):
-        for item in album.items():
-            songpath = item.destination(fragment=True)
-            self.paths.add(songpath)
+    def gather_imported_files(self, destination):
+        fullpath = destination.decode('utf-8')
+        base = os.path.expanduser(str(config['directory']))
+        relpath = os.path.relpath(fullpath, base)
+        self.paths.add(relpath)
 
     def block_until_update_finishes(self):
         """MPDClient's update method only tells the MPD server to "start updating the database" without actually

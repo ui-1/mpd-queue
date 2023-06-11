@@ -1,7 +1,5 @@
 # mpd-queue
 
-- - -
-
 A small [Beets](https://github.com/beetbox/beets) plugin to add newly imported tracks to the queue of your [MPD](https://github.com/MusicPlayerDaemon/MPD) server.
 
 ## Installation
@@ -27,3 +25,7 @@ mpd-queue:
 |------|-----------------------------|---------------|
 | host | Hostname of the MPD server  | localhost     |
 | port | Port to use when connecting | 6600          |
+
+## Usage
+
+Simply run `beet import` as you normally would. Any imported files should (quietly) be added to the MPD queue.

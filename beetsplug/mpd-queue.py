@@ -21,11 +21,7 @@ class MPDQueuePlugin(BeetsPlugin):
         host = self.config['host'].get()
         port = self.config['port'].get()
         client.connect(host, port)
-
         client.update()
-        print('Updating MPD database…')
-        time.sleep(3)
 
         for path in sorted(self.paths):
-            print(f'Adding to MPD queue: {path}')
             client.add(path)

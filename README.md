@@ -1,5 +1,8 @@
 # mpd-queue
 
+![GitHub](https://img.shields.io/github/license/ui-1/mpd-queue)
+![PyPI](https://img.shields.io/pypi/v/mpd-queue)
+
 A small [Beets](https://github.com/beetbox/beets) plugin to add newly imported tracks to the queue of your [MPD](https://github.com/MusicPlayerDaemon/MPD) server.
 
 ## Installation
